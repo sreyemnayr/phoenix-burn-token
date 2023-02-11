@@ -1,0 +1,155 @@
+.mo-fire {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left:50%;
+  margin-left: -100px;
+  bottom: 0;
+}
+svg.flame-main {
+
+  position: absolute;
+  bottom:0;
+  left:50%;
+  stroke: #221910;
+  stroke-width:0.15rem;
+}
+
+svg.flame {
+  position: absolute;
+  bottom:0;
+  stroke: #221910;
+  stroke-width:0.15rem;
+  z-index:20;
+}
+
+svg.glitchText {
+  animation: flameWobble linear infinite;
+  animation-duration: 0.43s;
+  max-width: 100%;
+  max-height: 100%;
+
+}
+
+svg.glitchText_noAnimation {
+  max-width: 100%;
+  max-height: 100%;
+  /* height: 100%; */
+}
+
+.flame {
+  animation: flamefly 2s ease-in-out infinite, delayflame 1.2s linear infinite;
+  opacity: 0;
+  transform-origin: 50% 50% 0;
+}
+.flame.flame_0 {
+  animation-delay: 4s;
+  animation-duration: 1.75s, 1.1s;
+}
+.flame.flame_1 {
+  animation-delay: 3s;
+  animation-duration: 1.25s, 1.2s;
+}
+.flame.flame_2{
+  animation-duration: 2s, 1.3s;
+  animation-delay: 6s;
+}
+.flame.flame_3{
+  animation-duration: 1.2s, 1.4s;
+  animation-delay: 1s;
+}
+.flame.flame_4{
+  animation-duration: 2.4s, 1.5s;
+  animation-delay: 1.3s;
+}
+
+.flame-main {
+  animation-name: flameWobble;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.flame-main.flame_0 {
+  animation-duration: 0.4s;
+  animation-delay: 0.08s;
+}
+.flame-main.flame_1 {
+  animation-duration: 0.34s;
+  animation-delay: 0.1s;
+}
+.flame-main.flame_2 {
+  animation-duration: 0.3s;
+  animation-delay: 0.2s;
+}
+.flame-main.flame_3 {
+  animation-duration: 0.21s;
+  animation-delay: 0.3s;
+}
+.flame-main.flame_4 {
+  animation-duration: 0.32s;
+  animation-delay: 0.4s;
+}
+.flame-main.flame_5 {
+  animation-duration: 0.25s;
+  animation-delay: 0.5s;
+}
+/* @keyframes flameWobble {
+  40% {
+    transform: scale(1.1,1.1) translate(0, -30px) rotate(-2deg);
+  }
+} */
+@keyframes flamefly {
+  0%{
+    transform: translate(0) rotate(180deg);
+  }
+   50% {
+      transform: translate(-10px, -60px) rotate(170deg);
+     /* opacity: 1; */
+  }
+  100% {
+    transform: translate(-20px, -100px) rotate(180deg);
+    /* opacity: 0; */
+  }
+}
+
+@keyframes delayflame {
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 0;
+
+  }
+  51%{
+    opacity: 1;
+  }
+  80%{
+    opacity: 0;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+@keyframes flameWobble {
+  0% {
+    filter: url("#turbulence-1");
+  }
+  25% {
+    filter: url("#turbulence-2");
+    
+  }
+  50% {
+    filter: url("#turbulence-3");
+    transform: scale(1.1,1.1) translate(0, -3px) rotate(-2deg);
+  }
+  75% {
+    filter: url("#turbulence-4");
+    
+    
+  }
+  100% {
+    filter: url("#turbulence-5");
+    /* color:transparent; */
+  }
+}
