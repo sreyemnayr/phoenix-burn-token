@@ -201,7 +201,7 @@ const { data: pendingTxData, status: txStatus} = useWaitForTransaction({
         <div className="col-span-3 w-full text-center flex flex-col justify-around absolute bottom-0 mb-[30vh]">
           {phoenixesToBurn.length > 0 && !(["loading", "error", "success"].includes(txStatus)) && (
             
-              <button className="mx-auto align-baseline text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2">
+              <button onClick={()=>{write?.()}} className="mx-auto align-baseline text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2">
                 <GabeText value="Burn" size="h-[20vh] text-center" />
               </button>
             )}
