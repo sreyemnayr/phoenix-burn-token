@@ -13,6 +13,11 @@ module.exports = {
         'flame-deep-red': '#891212',
         'gabe-black': '#221910'
       },
+      zIndex: {
+        '99': '99',
+        '100': '100',
+        '999': '999'
+      }
     },
   },
   plugins: [],

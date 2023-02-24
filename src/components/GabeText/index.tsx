@@ -1,4 +1,35 @@
 import * as React from 'react';
+import PhoenixesSVG from './svg/Phoenixes_.svg'
+import PhoenixSVG from './svg/Phoenix_.svg'
+import SoulsSVG from './svg/Souls_.svg'
+import SoulSVG from './svg/Soul_.svg'
+import DisconnectSVG from './svg/Disconnect_.svg'
+import ConnectSVG from './svg/Connect_.svg'
+import RedeemSVG from './svg/Redeem_.svg'
+import BurnSVG from './svg/Burn_.svg'
+import LeadersSVG from './svg/Leaders_.svg'
+import PlusSVG from './svg/Plus_.svg'
+import MinusSVG from './svg/Minus_.svg'
+
+interface IComponent {
+  value: string;
+}
+const SVG = ({value}: IComponent) => {
+  switch(value) {
+    case "Phoenixes": return PhoenixesSVG;
+    case "Phoenix": return PhoenixSVG;
+    case "Souls": return SoulsSVG;
+    case "Soul": return SoulSVG;
+    case "Connect": return ConnectSVG;
+    case "Disconnect": return DisconnectSVG;
+    case "Redeem": return RedeemSVG;
+    case "Burn": return BurnSVG;
+    case "Leaders": return LeadersSVG;
+    case "Plus": return PlusSVG;
+    case "Minus": return MinusSVG;
+    default: return PhoenixesSVG;
+  }
+}
 
 const gabeTexts: {[key: string]: {paths: string[], width: string, height: string}} = {
   "Phoenix": {
@@ -84,8 +115,15 @@ interface IGabeText {
   size?: string;
 }
 
-export const GabeText = ({value = "Phoenix", size}: IGabeText) => {
+export const GabeText = ({value = "Phoenix", size="h-[10vh]"}: IGabeText) => {
+  const Component = SVG({value})
+  return (
+    <>
+      <Component className={`glitchText val_${value} overflow-visible ${size}`} />
+    </>
+  )
 
+  /*
   return (
     <svg
     className={`glitchText val_${value} overflow-visible h-[10vh]`}
@@ -133,6 +171,7 @@ export const GabeText = ({value = "Phoenix", size}: IGabeText) => {
    
   </svg>
   )
+  */
 
 }
 

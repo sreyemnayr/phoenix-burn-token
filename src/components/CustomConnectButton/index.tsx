@@ -31,11 +31,12 @@ export const CustomConnectButton = () => {
                 userSelect: 'none',
               },
             })}
+            
           >
             {(() => {
               if (!connected) {
                 return (
-                  <button onClick={openConnectModal} type="button" className="text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2">
+                  <button onClick={openConnectModal} type="button" className="z-999 text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2">
                     
                     <GabeText value="Connect" />
                   </button>
@@ -43,13 +44,16 @@ export const CustomConnectButton = () => {
               }
               if (chain.unsupported) {
                 return (
-                  <button onClick={openChainModal} type="button">
+                  <button onClick={openChainModal} className="z-999 text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2" type="button">
                     Wrong network
                   </button>
                 );
               }
               return (
-                <></>
+                <button onClick={openAccountModal} type="button" className="relative z-999 text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2">
+                    
+                    <GabeText value="Disconnect" size="h-[6vh] z-999"/>
+                  </button>
                 // <div style={{ display: 'flex', gap: 12 }}>
                 //   <button
                 //     onClick={openChainModal}

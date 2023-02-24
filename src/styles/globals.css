@@ -9,6 +9,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #BE2026;
+  overflow: hidden;
   /* background-image: url("../../public/img/flames.gif");
   background-position:contain; */
 }

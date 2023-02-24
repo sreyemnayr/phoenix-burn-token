@@ -28,9 +28,9 @@
 
 .footer a {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  flex-grow: 1;
+  flex-grow: 0;
   opacity: 0;
 }
 
