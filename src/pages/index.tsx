@@ -137,7 +137,7 @@ const { data: pendingTxData, status: txStatus} = useWaitForTransaction({
       <main className={styles.main}>
         { isConnected ? (
           <>
-        <div className="flex justify-between h-[30vh] w-full fixed top-10 left-0 p-2 px-10">
+        <div className="flex justify-between h-[30vh] w-full fixed top-10 left-0 p-2 px-10 z-999">
           <div className="flex flex-col ">
             <div className="flex flex-row justify-center">
             <NumericDisplay value={phoenixes.length} />
@@ -198,7 +198,7 @@ const { data: pendingTxData, status: txStatus} = useWaitForTransaction({
           </div>
           
         </div>
-        <div className="col-span-3 w-full text-center flex flex-col justify-around absolute bottom-0 mb-[30vh]">
+        <div className="col-span-3 w-full text-center flex flex-col justify-around absolute bottom-0 mb-[30vh] h-[40vh]">
           {phoenixesToBurn.length > 0 && !(["loading", "error", "success"].includes(txStatus)) && (
             
               <button onClick={()=>{console.log("clicked"); console.log(write); write?.()}} className="mx-auto align-baseline text-gabe-black hover:text-flame-yellow hover:stroke-flame-orange hover:stroke-2">
@@ -206,18 +206,19 @@ const { data: pendingTxData, status: txStatus} = useWaitForTransaction({
               </button>
             )}
             {errorMessage !== "" && (
-              <div className="z-999 bg-flame-yellow w-full text-2xl text-gabe-black">ERROR: {errorMessage}</div>
+              <div className="bg-flame-yellow w-full text-2xl text-gabe-black">ERROR: {errorMessage}</div>
             )}
             {txStatus === 'loading' && (
               <>
-              <Image
+              
+              <div className="h-[20vh] block"><Image
                     src={`/img/burning_phoenix_small.gif`}
                     alt={`Phoenix Burn Token`}
                     unoptimized
-                    height="195"
-                    width="120"
-                    className="glitchText" />
-              <div>Verifying Transaction <a href={`https://etherscan.io/tx/${txHash}`}>etherscan</a></div>
+                    layout="fill"
+                    className="glitchText relative object-contain z-999 mb-[10vh]" />
+              </div>
+              <div className="z-999 mt-[30vh] w-full text-sm text-gabe-black">Verifying Transaction<br /> <a className="underline hover:text-flame-orange" href={`https://etherscan.io/tx/${txHash}`}>view on etherscan</a></div>
               </>
             )}
             {txStatus === 'success' && (
