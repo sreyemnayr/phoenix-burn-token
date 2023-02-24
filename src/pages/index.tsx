@@ -113,13 +113,10 @@ const { data: pendingTxData, status: txStatus} = useWaitForTransaction({
     
     if(data){
       console.log(data?.[0], data?.[1], data?.[2]);
-      if(address?.toLowerCase() === "0x3D2198fC3907e9D095c2D973D7EC3f42B7C62Dfc".toLowerCase()){
-        setPhoenixes([1,2,3,34])
-        setSouls(3)
-      } else {
+      
         setPhoenixes(data?.[2] as number[] || [])
         setSouls(Number(data?.[1] || 0))
-      }
+      
 
     }
     
